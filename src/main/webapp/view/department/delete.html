@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Department</title>
+</head>
+<body>
+<h1>Delete department</h1>
+<h4>Are you sure you want to delete this one?</h4>
+<form th:action="@{/delete-department}" th:object="${department}" method="post">
+    <input th:type="hidden" th:field="*{id}" name="id">
+    <p>Name</p>
+    <p th:text="${department.name}"></p>
+    <p><input type="submit" value="Delete this department"></p>
+</form>
+</body>
+</html>

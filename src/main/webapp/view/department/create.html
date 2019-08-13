@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new department</title>
+</head>
+<body>
+<h1>Create new department</h1>
+<a href="/departments">Department List</a>
+<p th:if="${message}" th:text="${message}"></p>
+<form th:action="@{/create-department}" method="post" th:object="${department}">
+<p>Name: <input type="text" th:field="*{name}"></p>
+    <p><input type="submit" value="Create new department"></p>
+</form>
+</body>
+</html>
