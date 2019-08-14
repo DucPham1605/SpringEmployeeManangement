@@ -9,21 +9,17 @@
 <a href="/employees">Employees List</a> </br>
 <a href="/create-department">Add new Department</a> </br></br>
 
-
-
 <table border="1">
     <tr>
         <td>Name</td>
         <td>Edit</td>
         <td>Delete</td>
-        <td>Employee List</td>
     </tr>
     <th:block th:each="department : ${departments}">
         <tr>
             <td th:text="${department.name}"></td>
             <td><a th:href="@{/edit-department/__${department.id}__ }">Edit</a></td>
             <td><a th:href="@{/delete-department/__${department.id}__}">Delete</a></td>
-            <td><a th:href="@{/view-department/__${department.id}__}">Employee List</a></td>
         </tr>
     </th:block>
 

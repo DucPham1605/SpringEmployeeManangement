@@ -32,12 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void remove(Long id) {
-        Department department = departmentRepository.findOne(id);
-        Iterable<Employee> employeeList = employeeRepository.findAllByDepartment(department);
-        for (Employee employee:employeeList){
-            employeeRepository.delete(employee);
-        }
-        departmentRepository.delete(id);
+        employeeRepository.delete(id);
     }
 
     @Override

@@ -78,7 +78,7 @@ public class DepartmentController {
 
     @PostMapping("/delete-department")
     public String deleteDepartment(@ModelAttribute ("department") Department department){
-        employeeService.remove(department.getId());
+        departmentService.remove(department.getId());
         return "redirect:departments";
     }
 

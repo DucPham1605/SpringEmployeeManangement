@@ -65,6 +65,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
         StringToLocalDateConverter stringToLocalDateConverter = new
                 StringToLocalDateConverter("MM/dd/yyyy");
         registry.addConverter(stringToLocalDateConverter);
+        registry.addFormatter(new DepartmentFormatter(applicationContext.getBean(DepartmentService.class)));
     }
 
     @Bean

@@ -35,6 +35,16 @@
             <td><input type="file" th:field="*{avatar}"/></td>
         </tr>
         <tr>
+        <td>
+            <select name="department">
+                <option th:each="d:${departments}" th:value="${d.id}"
+                        th:text="${d.name}"
+                        th:selected="(${d.id} == *{department.id})">
+                </option>
+            </select>
+        </td>
+        </tr>
+        <tr>
             <td><input type="submit" value="Submit"></td>
         </tr>
     </table>
