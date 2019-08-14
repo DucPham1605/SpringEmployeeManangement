@@ -144,4 +144,20 @@ public class EmployeeController {
         employeeService.remove(employee.getId());
         return "redirect:employees";
     }
+
+    @GetMapping("/sorting-salaryAsc")
+    public ModelAndView sortingSalaryAsc(@PageableDefault(size = 3) Pageable pageable){
+        Page<Employee> employees = employeeService.findByOrderBySalaryAsc(pageable);
+        ModelAndView modelAndView = new ModelAndView("/employee/list");
+        modelAndView.addObject("employees",employees);
+        return modelAndView;
+    }
+
+    @GetMapping("/sorting-salaryDesc")
+    public ModelAndView sortingSalaryDesc(@PageableDefault(size = 3) Pageable pageable){
+        Page<Employee> employees = employeeService.findByOrderBySalaryDesc(pageable);
+        ModelAndView modelAndView = new ModelAndView("/employee/list");
+        modelAndView.addObject("employees",employees);
+        return modelAndView;
+}
 }

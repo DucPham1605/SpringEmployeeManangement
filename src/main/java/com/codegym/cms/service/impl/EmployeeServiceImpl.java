@@ -44,4 +44,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Iterable<Employee> findAllByDepartment(Department department) {
         return employeeRepository.findAllByDepartment(department);
     }
+
+    @Override
+    public Page<Employee> findByOrderBySalaryAsc(Pageable pageable) {
+        return employeeRepository.findByOrderBySalaryAsc(pageable);
+    }
+
+    @Override
+    public Page<Employee> findByOrderBySalaryDesc(Pageable pageable) {
+        return employeeRepository.findByOrderBySalaryDesc(pageable);
+    }
 }

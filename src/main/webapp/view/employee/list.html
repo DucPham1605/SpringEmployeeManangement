@@ -9,13 +9,26 @@
 <h1>Employee List</h1>
 <a href="/departments">Department list</a></br>
 <a href="/create-employee">Add new Employee</a> </br>
+
+</br></br>
+<p>Department's members list</p>
+<form th:action="@{/view-department}" method="get">
+    <select name="departmentlist">
+        <option th:each="d:${departments}" th:href="@{/view-department/__${d.id}__}" th:value="${d.id}" th:text="${d.name}"></option>
+    </select>
+    <p><input type="submit" value="Submit"> </p>
+</form>
+
 <table border="1">
     <thead class="thead-dark">
     <tr>
         <td>Name</td>
         <td>Birthday</td>
         <td>Address</td>
-        <td>Salary</td>
+        <td>Salary
+            <a th:href="@{/sorting-salaryAsc}">Asc</a>
+            <a th:href="@{/sorting-salaryDesc}">Desc</a>
+        </td>
         <td>Department</td>
         <td>Avatar</td>
         <td>Edit</td>
@@ -38,7 +51,7 @@
     <div>
         <a th:href="@{'/employees'(page=${employees.number - 1})}" th:if="${employees.hasPrevious()}">Previous</a>
         <span th:text="${employees.number + 1}"></span>/<span th:text="${employees.totalPages}"></span>
-        <a th:href="@{'/customers'(page=${employees.number + 1})}" th:if="${employees.hasNext()}">Next</a>
+        <a th:href="@{'/employees'(page=${employees.number + 1})}" th:if="${employees.hasNext()}">Next</a>
     </div>
 
 

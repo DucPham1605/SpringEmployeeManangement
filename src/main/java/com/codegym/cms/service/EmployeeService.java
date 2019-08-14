@@ -16,4 +16,8 @@ public interface EmployeeService {
 
     Iterable<Employee> findAllByDepartment(Department department);
 
+    Page<Employee> findByOrderBySalaryAsc(Pageable pageable);
+
+    Page<Employee> findByOrderBySalaryDesc(Pageable pageable);
+
 }
